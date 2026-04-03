@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍊 盘前收盘新闻汇总 | 2026年4月2日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --red: #ff6b6b;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #f0883e;
+    --pink: #f778ba;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.7;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 30px 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; color: #fff; }
+  .header .subtitle { color: var(--text-dim); font-size: 14px; margin-top: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tag-red { background: rgba(255,107,107,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .tag-orange { background: rgba(240,136,62,0.15); color: var(--orange); }
+  .tag-pink { background: rgba(247,120,186,0.15); color: var(--pink); }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--blue);
+    margin: 14px 0 8px;
+  }
+  .section h3:first-child { margin-top: 0; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .index-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .index-card .name { font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+  .index-card .price { font-size: 20px; font-weight: 700; color: #fff; }
+  .index-card .change { font-size: 14px; font-weight: 600; }
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .flat { color: var(--text-dim); }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .stock-table th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stock-table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-table .ticker { color: var(--blue); font-weight: 600; }
+  .stock-table .company { color: #fff; }
+
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+  .macro-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .macro-item .label { font-size: 12px; color: var(--text-dim); }
+  .macro-item .value { font-size: 15px; font-weight: 700; color: #fff; }
+
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.4);
+    font-size: 13px;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .bullet {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .bullet-red { background: var(--red); }
+  .bullet-green { background: var(--green); }
+  .bullet-yellow { background: var(--yellow); }
+  .bullet-blue { background: var(--blue); }
+  .bullet-purple { background: var(--purple); }
+  .bullet-orange { background: var(--orange); }
+  .bullet-pink { background: var(--pink); }
+
+  .war-alert {
+    background: rgba(255,107,107,0.08);
+    border: 1px solid rgba(255,107,107,0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 10px 0;
+  }
+  .war-alert h3 { color: var(--red); }
+
+  .timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--border);
+    margin: 10px 0;
+  }
+  .timeline-item {
+    position: relative;
+    padding: 4px 0 12px 16px;
+    font-size: 13px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+  .timeline-item .date { color: var(--text-dim); font-size: 11px; }
+  .timeline-item .desc { color: var(--text); }
+
+  .highlight-box {
+    background: rgba(88,166,255,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+  }
+
+  .alert-box {
+    background: rgba(240,136,62,0.08);
+    border-left: 3px solid var(--orange);
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-dim);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+
+  .flex-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .flex-row > * { flex: 1; min-width: 200px; }
+
+  strong { color: #fff; }
+  em { font-style: normal; color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🍊 盘前收盘新闻汇总</h1>
+  <div class="subtitle">2026年4月2日 周四 | 数据截至：2026年4月2日 16:00 北京时间</div>
+  <div style="margin-top:10px;">
+    <span class="tag tag-yellow">⚡ 全球市场史诗级反弹</span>
+    <span class="tag tag-red">🔥 美伊停火信号</span>
+    <span class="tag tag-blue">💎 黄金破$4,800</span>
+    <span class="tag tag-purple">🚀 智谱暴涨31%</span>
+  </div>
+</div>
+
+<!-- ====== 一、全球指数 ====== -->
+<div class="section">
+  <h2>📊 一、全球指数总览</h2>
+
+  <h3>🇺🇸 美股（4月1日收盘）— 去年5月以来最大单日涨幅</h3>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">道琼斯 DJIA</div>
+      <div class="price">46,565.74</div>
+      <div class="change up">+224.23 (+0.48%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">标普500 S&P</div>
+      <div class="price">6,575.32</div>
+      <div class="change up">+184.80 (+2.91%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克 NASDAQ</div>
+      <div class="price">21,840.95</div>
+      <div class="change up">+795.99 (+3.83%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">中国金龙指数</div>
+      <div class="price">—</div>
+      <div class="change up">+近3%</div>
+    </div>
+  </div>
+
+  <h3>🇨🇳 A股（4月2日收盘）— 冲高回落</h3>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="price">3,919.29</div>
+      <div class="change down">-0.74%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="price">13,486.94</div>
+      <div class="change down">-1.60%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="price">3,172.65</div>
+      <div class="change down">-2.31%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">科创50</div>
+      <div class="price">—</div>
+      <div class="change down">-2.01%</div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>⚠️ A股4月2日提示：</strong>昨日（4月1日）A股四月开门红（沪指+1.46%），今日冲高回落，创业板指领跌2.31%。临近清明假期（4/4-4/6休市），资金获利了结意愿增强，关注节前最后半个交易日。
+  </div>
+
+  <h3>🇭🇰 港股（4月1日收盘）— 四月开门红</h3>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">恒生指数 HSI</div>
+      <div class="price">25,294.03</div>
+      <div class="change up">+505.89 (+2.04%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">恒生科技 HSTECH</div>
+      <div class="price">4,756.45</div>
+      <div class="change up">+106.63 (+2.29%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">国企指数</div>
+      <div class="price">—</div>
+      <div class="change up">+1.56%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">成交额</div>
+      <div class="price">2,914亿</div>
+      <div class="change" style="color:var(--text-dim)">港元</div>
+    </div>
+  </div>
+
+  <h3>🌏 其他市场</h3>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">日经225（3/31）</div>
+      <div class="change up">暴涨</div>
+    </div>
+    <div class="index-card">
+      <div class="name">韩国KOSPI（3/31）</div>
+      <div class="change up">暴涨</div>
+    </div>
+    <div class="index-card">
+      <div class="name">欧洲STOXX 600</div>
+      <div class="change up">全线上涨</div>
+    </div>
+    <div class="index-card">
+      <div class="name">美元指数</div>
+      <div class="change down">走弱</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 二、宏观经济指标 ====== -->
+<div class="section">
+  <h2>💱 二、宏观经济指标</h2>
+  <div class="macro-grid">
+    <div class="macro-item">
+      <div class="label">WTI原油</div>
+      <div class="value up">~$99.16</div>
+    </div>
+    <div class="macro-item">
+      <div class="label">布伦特原油</div>
+      <div class="value down">~$103.29 <span style="font-size:11px;color:var(--green)">-2.6%</span></div>
+    </div>
+    <div class="macro-item">
+      <div class="label">现货黄金</div>
+      <div class="value up" style="color:var(--yellow)">$4,800+ <span style="font-size:11px">历史新高</span></div>
+    </div>
+    <div class="macro-item">
+      <div class="label">上海金交所</div>
+      <div class="value up">~1,046 元/克</div>
+    </div>
+    <div class="macro-item">
+      <div class="label">比特币 BTC</div>
+      <div class="value up">~$69,310</div>
+    </div>
+    <div class="macro-item">
+      <div class="label">美债10Y</div>
+      <div class="value down">~4.31% <span style="font-size:11px;color:var(--green)">↓回落</span></div>
+    </div>
+    <div class="macro-item">
+      <div class="label">美元/人民币</div>
+      <div class="value">6.9025</div>
+    </div>
+    <div class="macro-item">
+      <div class="label">美联储6月降息预期</div>
+      <div class="value up">11.4%</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>🔑 宏观亮点：</strong>
+    <span class="news-item">
+      <span class="bullet bullet-yellow"></span>
+      <strong>黄金突破$4,800创历史新高</strong>，连续第四日上涨，地缘避险+美债收益率回落双重驱动
+    </span>
+    <span class="news-item">
+      <span class="bullet bullet-blue"></span>
+      <strong>比特币升破$69,310</strong>，终结连续5个月下跌趋势，美伊停火信号提振风险偏好
+    </span>
+    <span class="news-item">
+      <span class="bullet bullet-green"></span>
+      <strong>油价自高位回落</strong>，布伦特跌至$103附近，市场押注霍尔木兹海峡有望恢复通航
+    </span>
+    <span class="news-item">
+      <span class="bullet bullet-purple"></span>
+      <strong>10Y美债收益率从4.44%降至4.31%</strong>，美国2月职位空缺降幅超预期，加息预期缓解
+    </span>
+  </div>
+</div>
+
+<!-- ====== 三、美伊战争最新动态 ====== -->
+<div class="section">
+  <h2>🔥 三、美伊冲突追踪（第33天）</h2>
+
+  <div class="war-alert">
+    <h3>⏰ 关键时间节点：4月6日谈判期限</h3>
+    <p style="font-size:13px;margin-top:6px;">
+      特朗普设4月6日为最后期限，要求霍尔木兹海峡恢复"开放、自由且畅通"的通航状态。
+    </p>
+  </div>
+
+  <h3>📰 最新动态（4月1-2日）</h3>
+  <div class="news-item">
+    <span class="bullet bullet-red"></span>
+    <strong>特朗普全美电视讲话（4月1日晚）：</strong>宣称美军过去四周对伊朗实施"毁灭性打击"，核心目标确保伊朗永远无法获得核武器。预测军事行动可能在<strong>两到三周内</strong>结束。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-yellow"></span>
+    <strong>停火信号：</strong>特朗普称伊朗总统已向美国提出停火请求。美方条件——<em>霍尔木兹海峡恢复通航</em>。特朗普同时威胁，如条件未满足，"将轰炸到彻底毁灭"。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span>
+    <strong>伊朗方面：</strong>伊朗总统佩泽希齐扬和外长阿拉格齐3月31日晚公开现身德黑兰集会，参加4月1日伊朗伊斯兰共和国国庆47周年活动。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-orange"></span>
+    <strong>霍尔木兹海峡新规：</strong>伊朗议会通过法案，拟对海峡通行船只收费并禁止美以船只通行。美方威胁"彻底摧毁"伊朗石油设施。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span>
+    <strong>市场反应：</strong>美伊双方均释放缓和言论，全球风险偏好明显回升，推动美股、港股、黄金、加密全线大涨，油价跳水。
+  </div>
+
+  <h3>📅 冲突时间线</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="date">2月6日</div>
+      <div class="desc">美国宣布制裁伊朗石油贸易"影子船队"</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2月26日</div>
+      <div class="desc">美军对伊朗核设施发动首次打击，冲突爆发</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">3月9日</div>
+      <div class="desc">布伦特原油冲高至$119+，美债收益率升至近12年新高</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">3月30日</div>
+      <div class="desc">特朗普设4月6日最后期限</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">3月31日</div>
+      <div class="desc">美股史诗级反弹，纳指涨近4%，油价跳水</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">4月1日</div>
+      <div class="desc">特朗普全美电视讲话，伊朗总统请求停火</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date" style="color:var(--red)">4月6日（关键）</div>
+      <div class="desc" style="color:var(--red)">霍尔木兹海峡通航最后期限</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 四、美股科技股 ====== -->
+<div class="section">
+  <h2>🇺🇸 四、美股科技股（4月1日收盘）</h2>
+
+  <h3>🎯 关注个股表现</h3>
+  <table class="stock-table">
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="ticker">NVDA</td><td class="company">英伟达</td><td class="up">+5.59%</td><td>20亿美元入股迈威尔科技</td></tr>
+      <tr><td class="ticker">MRVL</td><td class="company">迈威尔科技</td><td class="up">+13%</td><td>获英伟达20亿投资，AI互联+硅光子合作</td></tr>
+      <tr><td class="ticker">META</td><td class="company">Meta</td><td class="up">+6.67%</td><td></td></tr>
+      <tr><td class="ticker">GOOGL</td><td class="company">谷歌A</td><td class="up">+5.14%</td><td></td></tr>
+      <tr><td class="ticker">TSLA</td><td class="company">特斯拉</td><td class="up">+4.64%</td><td>即将公布Q1交付数据</td></tr>
+      <tr><td class="ticker">AMZN</td><td class="company">亚马逊</td><td class="up">+3.64%</td><td></td></tr>
+      <tr><td class="ticker">MSFT</td><td class="company">微软</td><td class="up">+3.12%</td><td></td></tr>
+      <tr><td class="ticker">AAPL</td><td class="company">苹果</td><td class="up">+2.90%</td><td></td></tr>
+      <tr><td class="ticker">CRWD</td><td class="company">CoreWeave</td><td class="up">+12%</td><td>AI基础设施龙头</td></tr>
+      <tr><td class="ticker">SNAP</td><td class="company">Snap</td><td class="up">+14%</td><td></td></tr>
+      <tr><td class="ticker">NIO</td><td class="company">蔚来</td><td class="up">+9%</td><td>中概新能源车</td></tr>
+      <tr><td class="ticker">BIDU</td><td class="company">百度</td><td class="up">+4%+</td><td>中概股</td></tr>
+      <tr><td class="ticker">BABA</td><td class="company">阿里巴巴</td><td class="up">+2%+</td><td>中概股</td></tr>
+      <tr><td class="ticker">MU</td><td class="company">美光科技</td><td class="up">—</td><td>存储芯片（此前盘前跌近2%）</td></tr>
+      <tr><td class="ticker">SNDK</td><td class="company">闪迪</td><td class="up">—</td><td>存储芯片（此前盘前跌超2%）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <strong>🔥 英伟达20亿美元投资迈威尔科技：</strong>
+    英伟达3月31日宣布与迈威尔科技（MRVL）达成战略合作，通过NVLink Fusion技术将迈威尔接入英伟达AI工厂和AI生态系统。双方将在AI互联和硅光子技术领域展开深度合作。受此消息提振，A股CPO概念4月1日午后大涨，智立方20cm涨停。
+  </div>
+
+  <h3>📋 板块ETF表现</h3>
+  <div class="news-item">
+    <span class="bullet bullet-red"></span>半导体ETF <strong class="up">+5.76%</strong> &nbsp;|&nbsp; 科技股ETF <strong class="up">+4%+</strong> &nbsp;|&nbsp; 生物科技ETF <strong class="up">+4%+</strong> &nbsp;|&nbsp; 电信板块 <strong class="up">+4.42%</strong> &nbsp;|&nbsp; 能源板块 <strong class="down">-1.12%</strong>
+  </div>
+
+  <h3>⚡ 待关注事件</h3>
+  <div class="news-item">
+    <span class="bullet bullet-yellow"></span><strong>特斯拉等新能源车企将密集公布Q1交付数据</strong>，市场高度关注
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-yellow"></span>存储芯片板块（MU/SNDK）此前连续回调，花旗下调评级，关注后续走势
+  </div>
+</div>
+
+<!-- ====== 五、港股科技股 ====== -->
+<div class="section">
+  <h2>🇭🇰 五、港股科技股（4月1日收盘）</h2>
+
+  <h3>🎯 关注个股表现</h3>
+  <table class="stock-table">
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="ticker">02513</td><td class="company">智谱AI</td><td class="up" style="font-size:15px;font-weight:700">+31.15% 🔥</td><td>收盘909.50港元，市值突破4000亿港元</td></tr>
+      <tr><td class="ticker">9888</td><td class="company">百度</td><td class="up">+近4%</td><td></td></tr>
+      <tr><td class="ticker">9988</td><td class="company">阿里巴巴</td><td class="up">+超3%</td><td></td></tr>
+      <tr><td class="ticker">0700</td><td class="company">腾讯</td><td class="up">+2.6%</td><td></td></tr>
+      <tr><td class="ticker">1810</td><td class="company">小米集团</td><td class="up">+约1%</td><td></td></tr>
+      <tr><td class="ticker">0981</td><td class="company">中芯国际</td><td>—</td><td>芯片股走强（华虹半导体领涨）</td></tr>
+      <tr><td class="ticker">3690</td><td class="company">美团</td><td class="down">走低</td><td></td></tr>
+      <tr><td class="ticker">9618</td><td class="company">京东</td><td class="down">走低</td><td></td></tr>
+      <tr><td class="ticker">0669</td><td class="company">中国东方航空</td><td class="up">+12%</td><td>领涨航空板块</td></tr>
+      <tr><td class="ticker">0883</td><td class="company">中国海洋石油</td><td class="down">-近4%</td><td>油价回落拖累</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <strong>🚀 智谱AI暴涨31%：</strong>全球大模型第一股智谱AI（02513.HK）4月1日暴涨31.15%至909.50港元，总市值突破4000亿港元。地缘缓和+AI板块整体走强驱动，成为当日港股最大亮点。
+  </div>
+
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span><strong>芯片股整体走强</strong>，华虹半导体领涨，AI+CPO概念联动A股大涨
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-green"></span><strong>三大行创新高：</strong>建设银行、工商银行、中国银行盘中再创历史新高
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span>南北资金流向：港股通（沪）净买额-67.84亿，港股通（深）净买额-59.09亿（4月1日）
+  </div>
+</div>
+
+<!-- ====== 六、A股热点 ====== -->
+<div class="section">
+  <h2>🇨🇳 六、A股热点追踪</h2>
+
+  <h3>📈 4月1日：四月开门红（收盘）</h3>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="change up">+1.46%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="change up">+1.70%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="change up">+1.96%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">成交额</div>
+      <div class="price">放量</div>
+    </div>
+  </div>
+
+  <h3>🔥 热点板块</h3>
+  <div class="news-item">
+    <span class="bullet bullet-red"></span><strong>化学制药/创新药（领涨）：</strong>化学制药板块涨5%创纪录。津药药业4连板，广生堂、艾迪药业、睿智医药等多股20cm涨停。九安医疗4天3板。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span><strong>算力硬件/AI产业链：</strong>CPO概念午后爆发，智立方20cm涨停创历史新高，天孚通信涨超10%，铭普光磁6天3板涨停。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span><strong>半导体芯片：</strong>英伟达投资迈威尔科技消息催化，算力产业链集中修复
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-green"></span><strong>生物制品/CRO方向：</strong>医药生物板块迎多重催化，多只个股涨停
+  </div>
+
+  <h3>📉 4月2日：冲高回落（收盘）</h3>
+  <div class="news-item">
+    <span class="bullet bullet-yellow"></span>三大股指低开低走，创业板指领跌2.31%。临近清明假期资金获利了结，全市场调整
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-orange"></span><strong>清明休市：</strong>4月4日（周六）至4月6日（周一）休市，节前仅剩半个交易日
+  </div>
+</div>
+
+<!-- ====== 七、独角兽/IPO ====== -->
+<div class="section">
+  <h2>🦄 七、独角兽 & IPO动态</h2>
+
+  <h3>🚀 SpaceX — 史上最大IPO倒计时</h3>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span><strong>已秘密递交IPO申请</strong>（3月底），目标6月挂牌上市
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-red"></span><strong>估值$1.25-1.75万亿</strong>（合并xAI后），IPO募资规模或超$750亿，将成为全球史上最大IPO
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span>Fusion Fund创始人张璐：SpaceX 6月IPO或成史上最大IPO，太空经济进入真正拐点
+  </div>
+
+  <h3>🤖 Kimi（月之暗面）— 港股IPO评估中</h3>
+  <div class="news-item">
+    <span class="bullet bullet-yellow"></span><strong>正评估赴港IPO</strong>，已与中金公司、高盛展开初步承销洽谈（彭博社3月26日独家报道）
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span>知情人士证实：去年底已开始成本核算。估值目标<em>$180亿</em>
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-green"></span>新一轮超7亿美元融资已进入交割，估值突破$100亿。2026年1月发布开源Kimi K2.5模型
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span>创始人杨植麟此前表示"短期不着急上市"，但3个月估值涨四倍，资本推动IPO提速
+  </div>
+
+  <h3>📋 其他动态</h3>
+  <div class="news-item">
+    <span class="bullet bullet-orange"></span><strong>港股解禁高峰：</strong>3月港股解禁市值888.30亿港元，同比+264%。一季度超100亿市值解禁1862.55亿港元，同比+637%。二季度解禁压力回落
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-pink"></span><strong>A股商业航天概念：</strong>受SpaceX IPO催化，再升科技2连板，中超控股一字涨停
+  </div>
+</div>
+
+<!-- ====== 八、重大事件日历 ====== -->
+<div class="section">
+  <h2>📅 八、重大事件日历</h2>
+  <table class="stock-table">
+    <thead>
+      <tr><th>日期</th><th>事件</th><th>影响</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--red);font-weight:700">4月3日（今）</td>
+        <td>A股节前最后半个交易日</td>
+        <td><span class="tag tag-yellow">⚠️ 资金面</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--red);font-weight:700">4月4-6日</td>
+        <td>清明节休市（A股、港股）</td>
+        <td><span class="tag tag-blue">休市</span></td>
+      </tr>
+      <tr>
+        <td style="color:var(--red);font-weight:700">4月6日</td>
+        <td>美伊霍尔木兹海峡最后期限</td>
+        <td><span class="tag tag-red">🔥 地缘</span></td>
+      </tr>
+      <tr>
+        <td>4月上旬</td>
+        <td>特斯拉等新能源车企公布Q1交付数据</td>
+        <td><span class="tag tag-purple">财报</span></td>
+      </tr>
+      <tr>
+        <td>4月</td>
+        <td>DeepSeek、混元新一代大模型发布预期</td>
+        <td><span class="tag tag-blue">AI</span></td>
+      </tr>
+      <tr>
+        <td>6月（预期）</td>
+        <td>SpaceX IPO挂牌</td>
+        <td><span class="tag tag-orange">🦄 IPO</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 九、技术突破 ====== -->
+<div class="section">
+  <h2>🔬 九、技术突破 & 行业动态</h2>
+  <div class="news-item">
+    <span class="bullet bullet-blue"></span><strong>英伟达NVLink Fusion + 硅光子技术：</strong>英伟达与迈威尔科技战略合作，标志着AI竞赛从单一节点暴力计算转向系统级流体效率。CPO（共封装光学）技术成为新热点。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-purple"></span><strong>Kimi K2.5开源：</strong>月之暗面2026年1月发布基于原生多模态架构的新一代模型，集成视觉理解、编程、智能体调用能力。
+  </div>
+  <div class="news-item">
+    <span class="bullet bullet-green"></span><strong>医药生物突破：</strong>A股创新药板块连续走强，津药药业4连板，多只个股20cm涨停。CRO/创新药方向成4月最强主线。
+  </div>
+</div>
+
+<!-- ====== 总结 ====== -->
+<div class="section">
+  <h2>📝 盘前总结</h2>
+  <div class="highlight-box">
+    <p><strong>4月2日核心观点：</strong></p>
+    <p style="margin-top:8px;">
+      1️⃣ <strong>全球反弹：</strong>美伊停火信号驱动全球风险偏好回暖，美股创去年5月以来最大单日涨幅。但A股今日冲高回落，节前获利了结明显。<br><br>
+      2️⃣ <strong>黄金新高：</strong>现货黄金突破$4,800创历史新高，避险+美债回落双重驱动。短期追高需谨慎。<br><br>
+      3️⃣ <strong>港股AI强势：</strong>智谱AI暴涨31%市值破4000亿港元，成为港股AI龙头标杆。关注智谱/MiniMax后续走势。<br><br>
+      4️⃣ <strong>英伟达生态扩张：</strong>20亿美元投资迈威尔科技，CPO/硅光子成为AI基础设施新方向，关注A股算力硬件产业链。<br><br>
+      5️⃣ <strong>关键节点：</strong>4月6日霍尔木兹海峡最后期限、清明假期、SpaceX IPO推进、Kimi港股IPO评估。<br><br>
+      6️⃣ <strong>A股节前策略：</strong>今日是节前最后半个交易日，建议控制仓位。化学制药/创新药为4月最强主线，节后关注算力硬件回调后的布局机会。
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  🍊 柚子 | Ryan的盘前收盘新闻汇总<br>
+  数据来源：东方财富、新浪财经、财联社、凤凰网、彭博社、央视财经<br>
+  生成时间：2026年4月2日 16:40 北京时间
+</div>
+
+</body>
+</html>
