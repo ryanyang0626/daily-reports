@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 日报 · 2026-04-03</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg-page: #f7f7f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fafafa;
+    --border: #e8e8ee;
+    --border-hover: #d0d0da;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a64;
+    --text-muted: #8888a0;
+    --accent-hardware: #d97706;
+    --accent-china: #dc2626;
+    --accent-coding: #2563eb;
+    --accent-robotics: #059669;
+    --accent-funding: #7c3aed;
+    --tag-bg-hardware: rgba(217, 119, 6, 0.08);
+    --tag-bg-china: rgba(220, 38, 38, 0.08);
+    --tag-bg-coding: rgba(37, 99, 235, 0.08);
+    --tag-bg-robotics: rgba(5, 150, 105, 0.08);
+    --tag-bg-funding: rgba(124, 58, 237, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--border);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .header-date {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .header-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--tag-bg-coding);
+    color: var(--accent-coding);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    font-weight: 500;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  .header-meta {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .header-meta span {
+    color: var(--text-muted);
+  }
+
+  /* Section */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .section-icon.hardware { background: var(--tag-bg-hardware); }
+  .section-icon.china { background: var(--tag-bg-china); }
+  .section-icon.coding { background: var(--tag-bg-coding); }
+  .section-icon.robotics { background: var(--tag-bg-robotics); }
+  .section-icon.funding { background: var(--tag-bg-funding); }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+  .section-title.hardware { color: var(--accent-hardware); }
+  .section-title.china { color: var(--accent-china); }
+  .section-title.coding { color: var(--accent-coding); }
+  .section-title.robotics { color: var(--accent-robotics); }
+  .section-title.funding { color: var(--accent-funding); }
+
+  .section-count {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Card */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .card-num {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .card h3 {
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
+    color: var(--text-primary);
+  }
+  .card-body {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+  .card-body strong { color: var(--text-primary); font-weight: 600; }
+  .card-body ul {
+    margin: 6px 0;
+    padding-left: 18px;
+  }
+  .card-body li { margin-bottom: 3px; }
+
+  .hl { font-weight: 600; }
+  .hl-amber { color: var(--accent-hardware); }
+  .hl-blue { color: var(--accent-coding); }
+  .hl-red { color: var(--accent-china); }
+  .hl-green { color: var(--accent-robotics); }
+  .hl-purple { color: var(--accent-funding); }
+
+  .why {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .why-label { font-weight: 600; color: var(--text-secondary); }
+
+  /* Funding row */
+  .funding-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .funding-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .funding-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .funding-amount {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 4px;
+  }
+  .funding-card h3 {
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .funding-card .card-body { font-size: 12.5px; }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 24px 16px 60px; }
+    .header h1 { font-size: 24px; }
+    .funding-row { grid-template-columns: 1fr; }
+    .card { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-top">
+      <span class="header-date">2026-04-03 FRI</span>
+      <span class="header-badge">16 ITEMS</span>
+    </div>
+    <h1>AI Daily Brief</h1>
+    <div class="header-meta">
+      覆盖：AI Coding · 具身智能 · AI 硬件基础设施 · 中国公司动态 · 融资<br>
+      <span>数据截至北京时间 12:45 · 来源以英文一手媒体为主</span>
+    </div>
+  </div>
+
+  <!-- 硬件基础设施 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon hardware">🔧</div>
+      <span class="section-title hardware">AI 硬件基础设施</span>
+      <span class="section-count">5 条</span>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#01</div>
+      <h3>三星 OFC 2026：300mm 硅光子平台，224Gbps MZM 实测达标</h3>
+      <div class="card-body">
+        三星在 OFC 2026 正式展示 300mm 硅光子代工平台：Mach-Zehnder 调制器实现 <span class="hl hl-amber">224 Gbps PAM4</span> 传输实测，带宽超 50 GHz，支持 1.6T/3.2T。目标 2030 年 CPO 达 <span class="hl hl-amber">2 pJ/bit</span> 能效。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>TSMC COUPE 量产 + 三星 SiPh 实测达标，硅光从研发进工程化冲刺。光模块板块今年催化密集。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#02</div>
+      <h3>CPO 2026 正式进入规模化量产元年</h3>
+      <div class="card-body">
+        三井物产 4/1 报告（LightCounting 数据）：
+        <ul>
+          <li><span class="hl hl-amber">2026 年</span> CPO 端口出货 ~<span class="hl hl-amber">100 万只</span>，市场 ~5 亿美元</li>
+          <li><span class="hl hl-amber">2030 年</span> 500 万只 / <span class="hl hl-amber">20 亿美元</span>，CAGR 35%+</li>
+          <li>首批部署：AWS / Google / Meta</li>
+          <li>短期 800G CPO，2028+ 演进 1.6T/3.2T</li>
+          <li>痛点：成本是可插拔模块 2-3 倍</li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>AI 数据中心互连确定性升级方向。2026 量产元年对光通信产业链是重要信号。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#03</div>
+      <h3>TSMC 启动 2nm 量产，Capex 上调至 $520-560 亿</h3>
+      <div class="card-body">
+        <ul>
+          <li>2nm 制程正式量产，较 3nm 功耗降 ~30%</li>
+          <li>2026 资本支出 <span class="hl hl-amber">$520-560 亿</span>创历史新高</li>
+          <li>下一代 A16（1.4nm）同步规划</li>
+          <li>AI 是唯一驱动力</li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>NVIDIA Rubin、Apple、高通下一代旗舰芯片制造基座已就绪。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#04</div>
+      <h3>CoWoS-S 产能仍是瓶颈，NVIDIA 和 Google TPU 优先</h3>
+      <div class="card-body">
+        Isaiah Research 4/2 报告：TSMC HPC Q1 营收 ~$200 亿，但封装持续紧张。
+        <ul>
+          <li>CoWoS-S 月产能上限 <span class="hl hl-amber">18,000-19,000 片</span></li>
+          <li>大量前端芯片排队等封装</li>
+          <li>NVIDIA B300/R100 + Google TPU 优先分产能</li>
+          <li>年底目标 <span class="hl hl-amber">130,000 片/月</span>（~4 倍增长）</li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>AI 芯片瓶颈已从前端制造转移到先进封装。CoWoS 产能决定 GPU 实际出货量。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#05</div>
+      <h3>存储芯片价格暴涨：Q1 DRAM 合约价环比涨 90-95%</h3>
+      <div class="card-body">
+        <ul>
+          <li>Q1 2026 DRAM 合约价环比 <span class="hl hl-red">+90-95%</span>，NAND +55-60%</li>
+          <li>AI 数据中心吃掉 <span class="hl hl-red">70% DRAM 产能</span> 给 HBM</li>
+          <li>CPU / SSD / HDD 均出现结构性短缺</li>
+          <li>连续三季：30% → 50% → 90%</li>
+          <li>笔记本和手机已涨 ~20%</li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>AI 对存储的结构性吞噬。对 MU / SNDK / WDC 有直接关联。</div>
+    </div>
+  </div>
+
+  <!-- 中国公司 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon china">🇨🇳</div>
+      <span class="section-title china">中国公司动态</span>
+      <span class="section-count">3 条</span>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#06</div>
+      <h3>华虹集团 7nm 产线就绪，壁仞科技已启动流片</h3>
+      <div class="card-body">
+        路透社独家：华力微电子（上海华虹六厂）开发出 7nm 工艺进入测试生产。壁仞科技（2023 年被美列入实体清单后失去 TSMC）已在该产线流片。计划年底月产数千片。华为与华虹有 7nm 合作。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>中国有了第二家 7nm 代工厂，国产 AI 芯片不再完全依赖中芯一条线。良率和量产节奏仍有大不确定性。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#07</div>
+      <h3>长鑫存储（CXMT）20% 产线转 HBM3，推进 $42 亿 IPO</h3>
+      <div class="card-body">
+        中国 DRAM 龙头计划将高达 <span class="hl hl-red">20% 产线</span>转向 HBM3，目标 2026 量产。同步推进 <span class="hl hl-red">$42 亿 IPO</span>。全球 HBM 被三星/SK/美光三家垄断，中国零自给。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>CXMT HBM3 量产成功 = 华为昇腾等国产 AI 芯片的关键配套。短期不撼动全球格局，但方向明确。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#08</div>
+      <h3>华为昇腾份额翻倍至 41%，NVIDIA 中国降至 55%</h3>
+      <div class="card-body">
+        Tom's Hardware 4/2 深度报道：
+        <ul>
+          <li>华为昇腾 2025 年出货 <span class="hl hl-red">81.2 万颗</span>，占国内约一半</li>
+          <li>Atlas 350（昇腾 950PR）FP4 性能号称 H20 的 <span class="hl hl-red">2.8 倍</span></li>
+          <li>阿里平头哥 26.5 万张，百度昆仑芯 + 寒武纪各 11.6 万颗</li>
+          <li>NVIDIA 中国份额从 95% 峰值降至 <span class="hl hl-red">55%</span></li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>国产替代最明确的量化数据。推理场景已形成实质竞争，华为在构建完整的国产 AI 算力栈。</div>
+    </div>
+  </div>
+
+  <!-- AI Coding -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon coding">🤖</div>
+      <span class="section-title coding">AI Coding / 智能体</span>
+      <span class="section-count">4 条</span>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#09</div>
+      <h3>Google Gemma 4 开源：Apache 2.0，256K 上下文，多模态</h3>
+      <div class="card-body">
+        31B 密集 + 26B MoE + 两个边缘轻量模型。历史首次 <span class="hl hl-blue">Apache 2.0</span>。原生函数调用 + JSON 输出，256K 上下文，支持图像/视频/音频。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>最宽松开源协议 + 256K 上下文，直接瞄准 AI coding agent 底座。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#10</div>
+      <h3>微软自研三模型上线：Transcribe / Voice / Image</h3>
+      <div class="card-body">
+        MAI Superintelligence 团队（Mustafa Suleyman）发布首批完全自研模型：
+        <ul>
+          <li><strong>Transcribe-1</strong>：25 语言，比 Azure Fast 快 2.5 倍</li>
+          <li><strong>Voice-1</strong>：1 秒生成 60 秒音频，自定义音色</li>
+          <li><strong>Image-2</strong>：Arena.ai 图像榜第 3</li>
+        </ul>
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>核心卖点比 OpenAI 更便宜。微软在悄悄降低对 OpenAI 的依赖。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#11</div>
+      <h3>Arcee Trinity-Large-Thinking：400B 开源推理模型</h3>
+      <div class="card-body">
+        <span class="hl hl-blue">Apache 2.0</span> · 399B MoE · 激活 13B · 30 人团队 · <span class="hl hl-blue">$2000 万</span>训练成本。PinchBench 91.9（仅次于 Opus 4.6），输出 <span class="hl hl-blue">$0.90/M token</span>（约 Opus 1/10）。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>罕见的"顶级 agent 性能 + 可本地部署"组合。适合金融/国防等合规场景。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#12</div>
+      <h3>阿里 Qwen3.6-Plus：1M 上下文，AI Coding 旗舰</h3>
+      <div class="card-body">
+        默认 <span class="hl hl-blue">100 万 token</span> 上下文，SWE-bench / Terminal-Bench 2.0 与 Claude Opus 4.5 持平或更优。深度集成推理 + 记忆 + 执行。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>国产模型 AI coding 首次打进第一梯队。1M 上下文对大型代码仓库有直接价值。</div>
+    </div>
+  </div>
+
+  <!-- 具身智能 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon robotics">🦾</div>
+      <span class="section-title robotics">具身智能 / 机器人</span>
+      <span class="section-count">2 条</span>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#13</div>
+      <h3>EgoNav：5 小时人类数据实现零样本机器人导航</h3>
+      <div class="card-body">
+        仅用 <span class="hl hl-green">5 小时</span>人类行走视频训练，部署在 Unitree G1 上零样本陌生环境导航，成功率 <span class="hl hl-green">96-99%</span>。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>数据效率比同类研究低 1-2 个数量级。具身智能的核心瓶颈是数据成本，这个方向值得持续跟踪。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">#14</div>
+      <h3>Faraday Future FX Aegis 四足机器人通过 FCC 认证</h3>
+      <div class="card-body">
+        FF 旗下 FX Aegis 完成美国 FCC 全面合规认证，正式开放美国市场销售。首月出货超目标 20 台。FF 造车失败后全押具身智能。
+      </div>
+      <div class="why"><span class="why-label">▎为什么看：</span>FCC 认证是进入美国市场的关键监管节点。高风险小盘股，但机器人监管准入进度值得跟踪。</div>
+    </div>
+  </div>
+
+  <!-- 融资 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon funding">💰</div>
+      <span class="section-title funding">融资</span>
+      <span class="section-count">2 条</span>
+    </div>
+
+    <div class="funding-row">
+      <div class="funding-card">
+        <div class="funding-amount hl-purple">$6,000 万</div>
+        <h3>Cognichip</h3>
+        <div class="card-body">
+          物理信息 AI 芯片设计，目标降本 75%。英特尔 CEO Lip-Bu Tan 个人参投 + 进董事会。总融资 $9,300 万。
+        </div>
+      </div>
+      <div class="funding-card">
+        <div class="funding-amount hl-purple">$4,400 万</div>
+        <h3>Noon</h3>
+        <div class="card-body">
+          直接运行在生产代码上的 AI 产品设计工具。Chemistry + First Round Capital 领投。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：TechCrunch · VentureBeat · The Neuron · Alibaba Cloud · TrendForce · Isaiah Research · Mitsui MGSSI · OFC 2026 · Reuters · Tom's Hardware<br>
+    Generated by 柚子 🍊 for Ryan
+  </div>
+
+</div>
+</body>
+</html>
