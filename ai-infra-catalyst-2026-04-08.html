@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI基础设施催化跟踪报告 | 2026-04-08</title><style>
+:root{--bg:#ffffff;--bg2:#f6f8fa;--bg3:#eef1f4;--border:#d0d7de;--text:#1f2328;--text2:#656d76;
+  --blue:#0969da;--green:#1a7f37;--red:#cf222e;--orange:#bf8700;--purple:#8250df;--red-bg:#ffebe9;--green-bg:#dafbe1;--orange-bg:#fff8c5}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"SF Pro SC","PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.72;font-size:14px;padding:24px 40px;max-width:1440px;margin:0 auto}
+h1{font-size:26px;font-weight:700;border-bottom:2px solid var(--border);padding-bottom:12px;margin:28px 0 16px;color:var(--text)}
+h2{font-size:20px;font-weight:700;border-bottom:1px solid var(--border);padding:10px 0 8px;margin:32px 0 12px;color:var(--blue);display:flex;align-items:center;gap:8px}
+h2::before{content:'';display:inline-block;width:4px;height:20px;background:var(--blue);border-radius:2px}
+h3{font-size:16px;font-weight:600;margin:22px 0 10px;color:var(--text)}
+h4{font-size:14.5px;font-weight:600;margin:16px 0 8px;color:var(--text2)}
+blockquote{background:var(--bg2);border-left:4px solid var(--blue);padding:12px 18px;margin:12px 0;border-radius:0 6px 6px 0;color:var(--text2)}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+thead{background:var(--bg2)}
+th{padding:9px 12px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+tr:hover{background:var(--bg2)}
+b,strong{font-weight:600;color:var(--text)}
+code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:12.8px;color:var(--purple)}
+pre{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:12px 0;font-size:13px}
+pre code{background:none;padding:0}
+
+/* Signal colors */
+.signal-green{color:var(--green);font-weight:600}
+.signal-yellow{color:var(--orange);font-weight:600}
+.signal-red{color:var(--red);font-weight:600}
+
+/* Highlight cells */
+td strong{font-weight:700}
+.highlight-green{background:var(--green-bg);font-weight:700;color:var(--green)}
+.highlight-orange{background:var(--orange-bg);font-weight:700;color:#7a5a00}
+.highlight-red{background:var(--red-bg);font-weight:700;color:var(--red)}
+
+/* TOC */
+.toc{background:linear-gradient(135deg,#f0f5ff 0%,#fafbff 100%);border:1px solid #c0d3ea;border-radius:10px;padding:18px 22px;margin:20px 0 30px}
+.toc-title{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px}
+.toc ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 24px}
+.toc li::before{content:'→';color:var(--blue);margin-right:6px;font-weight:700}
+.toc a{text-decoration:none;color:var(--text2);transition:.15s}
+.toc a:hover{color:var(--blue)}
+
+/* Header banner */
+.banner{background:linear-gradient(135deg,#0969da 0%,#57a0ff 50%,#8250df 100%);color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:24px;box-shadow:0 4px 16px rgba(9,105,218,.25)}
+.banner h1{color:#fff;border:none;font-size:24px;margin:0 0 8px 0;padding:0}
+.banner .meta{opacity:.88;font-size:13px}
+.banner .warning{background:rgba(255,255,255,.18);display:inline-block;padding:4px 12px;border-radius:6px;font-size:12px;margin-top:8px}
+
+/* Star rating */
+.star{color:var(--orange)}
+
+/* Section cards */
+.section-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:12px 0 20px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+
+/* Footer */
+.footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text2);font-size:12px;text-align:center}
+
+/* Numbered list in events table */
+.event-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--blue);color:#fff;border-radius:50%;font-size:11.5px;font-weight:700;margin-right:4px}
+
+/* Responsive */
+@media(max-width:900px){body{padding:16px 20px}table{font-size:12px}th,td{padding:6px 8px}}
+</style></head><body>
+<div class="banner">
+<h1>🔬 AI基础设施催化跟踪报告</h1>
+<div class="meta">日期：2026年4月8日 | 触发：ai-infra-catalyst v3 | 覆盖标的：17家 | 数据源：Tushare Pro + 卖方共识 + 网络聚合</div>
+<div class="warning">⚠️ 风险提示：本报告基于公开信息和卖方研报整理，不构成投资建议。</div>
+</div>
+<nav class="toc"><div class="toc-title">📑 目录导航</div><ul>
+<li><a href="#一-供应链短缺与涨价监控---核心">一、供应链短缺与涨价监控 ⭐ 核心</a></li>
+<li><a href="#二-近期催化事件">二、近期催化事件</a></li>
+<li><a href="#三-盈利预测表---卖方远期展望-Tushare-Pro---32家机构共识">三、盈利预测表 & 卖方远期展望（Tushare Pro + 32家机构共识）</a></li>
+<li><a href="#四-分板块空间测算">四、分板块空间测算</a></li>
+<li><a href="#五-跨板块联动与风险提示">五、跨板块联动与风险提示</a></li>
+<li><a href="#六-后续关注日历-未来2周---Q2">六、后续关注日历（未来2周 ~ Q2）</a></li>
+</ul></nav>
+<h1 id="AI基础设施催化跟踪报告">AI基础设施催化跟踪报告</h1>
+<blockquote><strong>日期：2026年4月8日 | 触发：首次试跑 ai-infrastructure-catalyst v1</strong></blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ <strong>风险提示</strong>：本报告基于公开信息和卖方研报整理，不构成投资建议。股价波动风险、技术路线风险、政策变动风险。</blockquote>
+<hr>
+<h2 id="一-供应链短缺与涨价监控---核心">一、供应链短缺与涨价监控 ⭐ 核心</h2>
+<blockquote>本节是AI Infra Skill最有价值的部分。当前处于<strong>全产业链通胀周期</strong>——从上游材料到中游光器件到下游数据中心配套，涨价链条正在逐级传导。</blockquote>
+<h3 id="价格变动追踪表">价格变动追踪表</h3>
+<div class="section-card"><table><tr><th>品类</th><th>当前价格</th><th>近期涨幅</th><th>供给约束</th><th>受益标的</th><th>弹性测算</th></tr>
+<tr><td><strong>G.652D散光纤</strong></td><td>~200元/芯km（散纤）</td><td>+400%+（25年以来）；普缆集采限价与市场价严重倒挂，多地流标</td><td>全球产能出清，扩产需2-3年；海外G657A2需求抢产能</td><td>远东股份(600869)、长飞光纤、亨通光电</td><td>散纤跳涨5-6倍，远东弹性最大</td></tr>
+<tr><td><strong>PPO电子树脂</strong></td><td>~60万/吨</td><td>日本MGC 4/1起全面涨价30%+；圣泉PPO月提≥5%；日系甲苯供应受限导致减产</td><td>26年电子级PPO总供给年底前仅~6000吨；M8-M9级CCL需求爆发</td><td><strong>圣泉集团(605589)</strong></td><td>单吨利润15万→25万，量价双击</td></tr>
+<tr><td><strong>WF₆六氟化钨</strong></td><td>日厂通知调价2x+</td><td>日本关东电化/中央硝子4月初正式断供三星等韩企；此前SK已先提70%-90%</td><td>粗钨原料80%+依赖中国进口→中国钨出口管制→日厂成本崩塌</td><td>中船特气(未上市)/昊华科技/和远气体</td><td>中国替代黄金窗口，中船2000吨产能全球覆盖率70%</td></tr>
+<tr><td><strong>CCL覆铜板</strong></td><td>—</td><td><strong>建滔积层板发函涨价10%</strong>（本周），主因树脂+电子布暴涨</td><td>PCB上游全面通胀，AI服务器/HPC驱动高端CCL需求</td><td>华正新材、生益科技</td><td>成本传导，关注跟进幅度</td></tr>
+<tr><td><strong>磷化铟单晶片</strong></td><td>行业景气回暖</td><td>光模块核心材料，InP激光器芯片需求爆发</td><td>云南锗业扩产至45万片/年</td><td>云南锗业(002428)</td><td>龙头α共振</td></tr>
+<tr><td><strong>液冷组件</strong></td><td>单套近40万元(RMB)</td><td>GB300 NVL72机柜价值超10万美元；全球液冷市场26年破150亿美元</td><td>英伟达GB300 1400W芯片热耗→风冷到液冷强制切换</td><td><strong>英维克</strong>、高澜股份、欧陆通</td><td>从边缘配套→核心赛道</td></tr></table></div>
+
+<h3 id="关键认知差">关键认知差</h3>
+<p style="padding-left:16px">1. <strong>PPO不是普通化工品</strong>：电子级PPO全球仅日本住友化学、三菱瓦斯化学（MGC）、中国圣泉集团三家能做。<strong>MGC 4/1涨价30%不是孤立事件——是日本化工供应链系统性收缩的开始。</strong></p>
+<p style="padding-left:16px">2. <strong>光纤涨价本质是结构性短缺</strong>：不是所有光纤都涨——是G652D标准单模光纤的产能被海外G657A2等多模光纤需求抢走导致的<strong>结构性缺口</strong>。运营商集采限价与现货价倒挂，招标流标。</p>
+<p style="padding-left:16px">3. <strong>WF6断供逻辑链</strong>：中国钨出口管制 → 日厂粗钨成本暴涨 → 无法维持低价供应 → 断供三星/海力士 → <strong>中船特气等中国企业成为唯一可靠来源</strong></p>
+<hr>
+<h2 id="二-近期催化事件">二、近期催化事件</h2>
+<div class="section-card"><table><tr><th>#</th><th>事件</th><th>方向</th><th>关联标的</th><th>强度</th></tr>
+<tr><td>1</td><td><strong>#日本MGC电子材料全面涨价30%（4.1生效）</strong>— CCL/树脂/PPO全线涨价，PCB上游进入全面通胀周期</td><td>↑正面</td><td>圣泉集团/华正新材/生益科技</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>2</td><td><strong>#建滔积层板CCL涨价10%（本周）</strong> — 上游树脂+电子布"价格暴涨且供应紧张"，建滔作为全球CCL龙头具有风向标意义</td><td>↑正面</td><td>CCL全板块</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>3</td><td><strong>#日本WF6六氟化钨断供三星（4.3确认）</strong> — 关东电化/中央硝子通知断供，全球高端电子特气供应链重构</td><td>↑正面（国产替代）</td><td>昊华科技/中船特气/和远气体/南大光电</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>4</td><td><strong>#中际旭创2025A净利115.80亿（+109%）</strong> — 800G放量+1.6T Q4快速爬坡，Q4单季36.65亿净利创历史新高</td><td>↑业绩验证</td><td>中际旭创</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>5</td><td><strong>#新易盛2025E预告94-99亿（+231%~+249%）</strong> — LPO技术省成本带来毛利率优势，前三季63亿净利</td><td>↑业绩验证</td><td>新易盛</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>6</td><td><strong>#圣泉集团涨停（4.3）</strong> — PPO+CCL+酚醛树脂三线涨价共振，电子级PPO供需缺口明确</td><td>↑情绪催化</td><td>圣泉集团</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>7</td><td><strong>#GB300液冷放量元年</strong> — 单芯片1400W热耗，风冷→液冷强制切换，单套液冷组件近40万</td><td>↑正面</td><td>英维克/欧陆通/高澜股份</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td>8</td><td><strong>#天孚通信2025A年报出炉（今日）</strong> — 净利20.18亿（+40%~60%），FAU/CPO无源器件龙头地位巩固</td><td>↑业绩验证</td><td>天孚通信</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr></table></div>
+
+<hr>
+<h2 id="三-盈利预测表---卖方远期展望-Tushare-Pro---32家机构共识">三、盈利预测表 & 卖方远期展望（Tushare Pro + 32家机构共识）</h2>
+<blockquote><strong>数据说明</strong>：Tushare income/forecast 接口为财报实绩/预告；26E/27E 为卖方机构一致预期均值（同花顺F10汇总，数据截至2026-04-08）。</blockquote>
+<blockquote>⚠️ 远期预测分歧较大，表中给出<strong>共识区间</strong>而非单点数字。</blockquote>
+<hr>
+<h3 id="3-1-光互连层---AI算力的-血管">3.1 光互连层 — AI算力的"血管"</h3>
+<div class="section-card"><table><tr><th>公司</th><th>2025A/E 净利(亿)</th><th>YoY</th><th><strong>26E 净利(亿)</strong></th><th><strong>27E 净利(亿)</strong></th><th>26E增速</th><th>核心逻辑</th></tr>
+<tr><td><strong>中际旭创</strong></td><td><strong>115.80</strong>(实绩)</td><td><strong>+109%</strong></td><td><strong>225</strong>( consensus 224.74 )</td><td><strong>334</strong>( cons.333.84 )</td><td><strong>~+94%</strong></td><td><span class="highlight-green">★★★</span> 800G龙头→1.6T放量元年；高盛CAGR 59%(25-28)；华泰目标价728元(40x26E PE)；东吴/国金看至293/405亿(26E最乐观)</td></tr>
+<tr><td><strong>新易盛</strong></td><td><strong>94-99</strong>(预告)</td><td><strong>+240%</strong></td><td><strong>172</strong>( cons.171.97 )</td><td><strong>228</strong>( cons.228.15 )</td><td><strong>~+80%</strong></td><td><span class="highlight-green">★★★</span> LPO降本红利+硅光先发；方正看至206亿(26E)，国盛看至217亿；高盛目标价502元</td></tr>
+<tr><td>天孚通信</td><td><strong>20.18</strong>(实绩)</td><td>+50%(mid)</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="highlight-green">★★</span> FAU/CPO无源器件龙头，光引擎持续放量</td></tr>
+<tr><td>太辰光</td><td><strong>3.08</strong>(实绩)</td><td>+62%(mid)</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="signal-green">●</span> MPO/AOC连接器受益于AI数据中心密度提升</td></tr>
+<tr><td>光库科技</td><td><strong>1.80</strong>(实绩)</td><td><strong>+162%</strong></td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="highlight-green">★★</span> 薄膜铌酸锂调制器从0到1放量阶段</td></tr>
+<tr><td>剑桥科技</td><td><strong>2.23</strong>(实绩)</td><td>+59%(mid)</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="signal-green">●</span> 工业互联网+光模块双轮驱动</td></tr>
+<tr><td>光迅科技</td><td><em>(H1预增)</em></td><td>+55%~95%</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="signal-green">●</span> 国产老牌复苏，电信+数通</td></tr>
+<tr><td>腾景科技</td><td><strong>0.68</strong>(24A)</td><td>+66%(mid)</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td><td><span class="signal-yellow">●</span> 精密光学平台，规模小增速快</td></tr>
+<tr><td><strong>东山精密(002384)</strong></td><td><strong>20.03</strong>(cons.,13家)</td><td><strong>+85%</strong></td><td><strong>54.2</strong>( cons.54.18 )</td><td><strong>79.4</strong>( cons.79.42 )</td><td><strong>~+170%</strong></td><td>FPC全球龙头+索尔思光电(25年并购)；光芯片自研能力稀缺；800G已批量交付，1.6T瞄准26E放量；华泰目标价167.8元；Q1净利预告增119%~152%</td></tr>
+<tr><td><strong>永鼎股份(600105)</strong></td><td><strong>2.00-3.00</strong>(预告)</td><td><strong>+226%</strong></td><td><strong><em>~4-5</strong></em></td><td><strong><em>~6</strong></em></td><td>-</td><td>光通信+超导双轮；25Q1-Q3营收36.3亿(+22%)，净利3.29亿(+474%)；光缆业务受益G652D涨价；⚠️Q3单季承压(海外工程毛利下滑)，全年含~2.5亿一次性投资收益</td></tr>
+<tr><td><strong>罗博特科(300757)</strong></td><td><strong>-0.66</strong>(实绩)</td><td><strong>扭亏为盈</strong></td><td><strong><em>扭亏</strong></em></td><td><strong><em>利润释放</strong></em></td><td>-</td><td><strong>ficonTEC(德国)光电子自动化设备</strong>：25A收入4.85亿(首年并表)，在手订单<strong>11.05亿</strong>(已超光伏订单)。OCS核心模块自动化产线订单落地；Q4单季转正(830万)，26年拐点</td></tr></table></div>
+
+<h4 id="中际旭创-vs-新易盛-远期预测关键对比">中际旭创 vs 新易盛：远期预测关键对比</h4>
+<div class="section-card"><table><tr><th>维度</th><th>中际旭创</th><th>新易盛</th></tr>
+<tr><td>2025A净利</td><td><strong>115.80亿</strong> (实绩)</td><td><strong>94-99亿</strong> (预告)</td></tr>
+<tr><td>2026E共识</td><td><strong>225亿</strong> (32家机构)</td><td><strong>172亿</strong> (19家机构)</td></tr>
+<tr><td>2027E共识</td><td><strong>334亿</strong> (29家机构)</td><td><strong>228亿</strong> (部分机构)</td></tr>
+<tr><td>最乐观26E</td><td>国金405亿 / 东吴293亿 / 西部296亿</td><td>方正206亿 / 国盛217亿</td></tr>
+<tr><td>最保守26E</td><td>华泰204亿</td><td>—</td></tr>
+<tr><td>目标价(最新)</td><td>华泰 <strong>728元</strong></td><td>国投 <strong>496元</strong> / 高盛 <strong>502元</strong></td></tr>
+<tr><td>核心alpha</td><td>800G全球份额第一，确定性最强</td><td><strong>LPO技术降本</strong>，利润弹性更大</td></tr>
+<tr><td>主要风险</td><td>大客户集中度过高</td><td>代工模式毛利波动性</td></tr></table></div>
+
+<hr>
+<h3 id="3-2-服务器-ODM---AI算力基础设施">3.2 服务器/ODM — AI算力基础设施</h3>
+<div class="section-card"><table><tr><th>公司</th><th>2025A/E 净利(亿)</th><th>YoY</th><th><strong>26E 净利(亿)</strong></th><th><strong>27E 净利(亿)</strong></th><th>核心逻辑</th></tr>
+<tr><td><strong>工业富联</strong></td><td><strong>352.86</strong>(实绩,年报已出)</td><td><strong>+52%</strong></td><td><strong>420-450</strong>*</td><td><strong><em>500+</strong></em></td><td><span class="highlight-green">★★★</span> <strong>AI服务器ODM绝对龙头</strong>；AI服务器收入占比从12%→42%(25A)，同比增超3倍；产能从100万→200万台/年(26E)；GB300/Rubin平台核心量产伙伴(独享增量订单)；天风维持330亿(25A)/上修392亿+(26E)</td></tr></table></div>
+
+<blockquote><strong>*注：工业富联26E/27E为基于研报逻辑推算（天风392亿/光大更高），非严格共识值。Rubin平台26H2量产是核心变量。</strong>*</blockquote>
+<p><strong>工业富联关键数据拆解（2025A年报）：</strong></p>
+<p style="padding-left:16px">- 总营收：~6100亿+（云计算业务6027亿，+88.7%）</p>
+<p style="padding-left:16px">- AI服务器营收同比增 <strong>超3倍</strong></p>
+<p style="padding-left:16px">- AI服务器占总营收比重：<strong>42%</strong>（vs 2024年仅12%）</p>
+<p style="padding-left:16px">- GB200组装良率25H2显著优化 → 26年量利齐升拐点</p>
+<p style="padding-left:16px">- 下一个增长引擎：<strong>英伟达 Rubin (GB300) 平台</strong> — 26H2起量</p>
+<hr>
+<h3 id="3-3-光纤光缆层---结构性短缺">3.3 光纤光缆层 — 结构性短缺</h3>
+<div class="section-card"><table><tr><th>公司</th><th>2025A/E 净利(亿)</th><th>YoY</th><th><strong>26E 净利(亿)</strong></th><th><strong>27E 净利(亿)</strong></th><th>核心逻辑</th></tr>
+<tr><td>润泽科技</td><td><strong>50-53</strong>(预告)</td><td><strong>+190%</strong></td><td><em>待更新</em></td><td><em>待更新</em></td><td><span class="highlight-green">★★★</span> <strong>AIDC/IDC龙头</strong>，算力租赁+自建机房双轮驱动</td></tr>
+<tr><td><strong>长飞光纤</strong></td><td><strong>8.14</strong>(实绩,3.27公告)</td><td><strong>+20%</strong></td><td><strong>11-13</strong>*</td><td><strong><em>15+</strong></em></td><td><span class="highlight-green">★★</span> <strong>2025A：营收142.52亿(+17%)</strong>，毛利率27.3%→30.7%(产品结构优化)；光互联组件收入31.44亿(+49%，毛利39.7%)成为增长引擎；境外收入61亿(+48%)；G652D涨价+AI特种光纤需求双催化</td></tr>
+<tr><td><strong>亨通光电</strong></td><td><strong>30.85</strong>(cons.,13家)</td><td><strong>+11%</strong></td><td><strong>40</strong>( cons.40.05 )</td><td><strong>48</strong>( cons.47.77 )</td><td><span class="highlight-green">★★</span> 光通信供需改善+海洋能源交付加速；中国银河看至54亿(26E)/72亿(27E)(最乐观)；在手订单充裕；AI算力光纤互联需求释放</td></tr></table></div>
+
+<blockquote><strong>*注：长飞光纤26E/27E为基于行业景气度推算。国泰海通最新点评："环比高速增长，毛利率大幅提升，看好光纤涨价带来进一步量价齐升"。</strong>*</blockquote>
+<p><strong>光纤板块核心逻辑——G652D结构性短缺：</strong></p>
+<p style="padding-left:16px">- 散纤价格从~40元/芯km飙升至~200元/芯km（<strong>+400%</strong>）</p>
+<p style="padding-left:16px">- 受益排序：<strong>远东股份(散纤弹性最大) > 长飞光纤 > 亨通光电</strong></p>
+<p style="padding-left:16px">- 扩产周期2-3年，缺口短期无法缓解</p>
+<hr>
+<h3 id="3-4-材料层---全面通胀周期的最大弹性所在">3.4 材料层 — 全面通胀周期的最大弹性所在</h3>
+<div class="section-card"><table><tr><th>公司</th><th>2025A/E 净利(亿)</th><th>YoY</th><th><strong>26E 净利(亿)</strong></th><th><strong>27E 净利(亿)</strong></th><th>核心逻辑</th></tr>
+<tr><td><strong>圣泉集团</strong></td><td><em>(涨停催化)</em></td><td>—</td><td><strong><em>待更新</strong></em></td><td><strong><em>待更新</strong></em></td><td><span class="highlight-green">★★★</span> <strong>电子级PPO国内唯一供应商</strong>，MGC涨价30%直接受益；PPO+CCL+酚醛树脂三线涨价共振</td></tr>
+<tr><td><strong>生益科技</strong></td><td><strong>32.5-34.5</strong>(预告)</td><td><strong>+87%~98%</strong></td><td><strong>54</strong>( cons.53.57 )</td><td><strong>74</strong>( cons.73.92 )</td><td><span class="highlight-green">★★★</span> <strong>CCL覆铜板全球第二</strong>；AI服务器驱动高频高速CCL需求爆发；覆铜板量价齐升，子公司生益电子高端PCB放量；建滔涨价10%后行业跟随→龙头受益最大</td></tr>
+<tr><td><strong>东材科技</strong></td><td><strong>3.00</strong>(预告,精确值)</td><td><strong>+66%</strong></td><td><strong><em>*~4-5</strong></em>*</td><td><strong><em>*~6</strong></em>*</td><td><span class="highlight-green">★★</span> 电子树脂景气推动高增；向全球知名覆铜板制造商供货，25Q3销量yoy+50%；光学聚酯基膜+电子材料双轮</td></tr>
+<tr><td>宏昌电子</td><td><em>(Tushare旧数据)</em></td><td>—</td><td><em>待补充</em></td><td><em>待补充</em></td><td><span class="signal-yellow">●</span> 电子级环氧树脂龙头；切入瀚宇博德/健鼎等PCB供应链；环氧树脂涨价周期潜在受益</td></tr>
+<tr><td>华正新材</td><td><em>(Tushare旧数据)</em></td><td>—</td><td><em>待补充</em></td><td><em>待补充</em></td><td><span class="signal-yellow">●</span> CCL涨价传导链受益标的</td></tr>
+<tr><td>云南锗业</td><td><em>(磷化铟扩产)</em></td><td>—</td><td><em>待补充</em></td><td><em>待补充</em></td><td><span class="signal-yellow">●</span> InP激光器芯片材料，扩产45万片/年</td></tr></table></div>
+
+<h4 id="生益科技详细分析">生益科技详细分析</h4>
+<p style="padding-left:16px">- <strong>2025业绩快报</strong>：净利润同比预增87%-98%（覆铜板量价齐升）</p>
+<p style="padding-left:16px">- <strong>2025H1</strong>：营收126.8亿(+32%)，归母净利14.26亿</p>
+<p style="padding-left:16px">- <strong>CCL涨价传导</strong>：12月中旬实施第二波涨价，预计增厚Q4毛利率3-5ppt</p>
+<p style="padding-left:16px">- <strong>26E/27E</strong>：16家机构共识净利53.6亿/73.9亿，对应PE快速消化</p>
+<p style="padding-left:16px">- <strong>核心alpha</strong>：CCL+PCB一体化能力，高频高速产品通过多家头部AI服务器厂商认证</p>
+<hr>
+<h3 id="3-7-高端PCB---AI服务器-HPC的核心载体">3.7 高端PCB — AI服务器/HPC的核心载体</h3>
+<blockquote>AI服务器PCB是本轮算力基建中量价齐升最确定的细分赛道之一。高端PCB技术壁垒高，产能稀缺，龙头议价能力强。</blockquote>
+<div class="section-card"><table><tr><th>公司</th><th>25A/E净利(亿)</th><th>YoY</th><th>26E净利(亿)</th><th>27E净利(亿)</th><th>核心逻辑</th></tr>
+<tr><td><strong>深南电路</strong></td><td><strong>32.76</strong>(实绩)</td><td><strong>+74%</strong></td><td><strong>50.9</strong>(19家)</td><td><strong>69.9</strong>(18家)</td><td>PCB+封装基板双龙头；FC-BGA国内唯一；数据中心20亿+高速增长</td></tr>
+<tr><td><strong>沪电股份</strong></td><td><strong>38.22</strong>(实绩)</td><td><strong>+48%</strong></td><td>~55*</td><td>~75*</td><td>高端通信PCB绝对龙头；数据通讯145.6亿(+45%)；毛利率35.48%；CoWoP布局</td></tr>
+<tr><td><strong>生益电子</strong></td><td><strong>14.73</strong>(实绩)</td><td><strong>+344%</strong></td><td>~21-23*</td><td>~28-32*</td><td>生益电子=生益科技子公司；AI HDI弹性之王；94.9亿营收(+103%)；定增26亿扩产</td></tr>
+<tr><td><strong>世运电路</strong></td><td><strong>8.85</strong>(8家)</td><td><strong>+31%</strong></td><td><strong>12.1</strong>(8家)</td><td><strong>16.3</strong>(8家)</td><td>汽车PCB领军者向AI跃迁；28层AI服务器板量产；进入英伟达/AMD供应链</td></tr></table></div>
+
+<blockquote>注：沪电/生益电子26E为基于研报推算。生益科技(CCL母公司)涨价→利好母公司，PCB放量→利好子公司。</blockquote>
+<h3 id="3-5-数据中心配套-液冷-电源">3.5 数据中心配套（液冷/电源）</h3>
+<div class="section-card"><table><tr><th>公司</th><th>2025A/E 净利(亿)</th><th>YoY</th><th><strong>26E 净利(亿)</strong></th><th><strong>27E 净利(亿)</strong></th><th>核心逻辑</th></tr>
+<tr><td>英维克</td><td><strong>4.54</strong>(24A实绩)</td><td>稳健</td><td><em>待更新</em></td><td><em>待更新</em></td><td><span class="signal-green">●</span> 液冷温控龙头，GB300从可选项变为必选项</td></tr>
+<tr><td>欧陆通</td><td><strong>2.68</strong>(24A实绩)</td><td>+37%(mid)</td><td><em>待更新</em></td><td><em>待更新</em></td><td><span class="signal-green">●</span> 服务器电源+GB300液冷电源</td></tr>
+<tr><td>高澜股份</td><td><strong>0.23-0.30</strong>(预告)</td><td><strong>扭亏</strong></td><td><em>待更新</em></td><td><em>待更新</em></td><td>液冷散热0到1拐点</td></tr>
+<tr><td><strong>麦格米特</strong></td><td><strong>~1.84</strong>(cons.)</td><td><strong>-36%</strong></td><td><strong>9.38</strong>(13家)</td><td><strong>15.17</strong>(11家)</td><td><strong>+409%</strong></td><td>AI数据中心电源核心标的！英伟达AI服务器电源大陆唯一指定供应商；GB200/GB300放量驱动；华泰目标价151元(80x PE)</td><td>(预告)</td><td><strong>扭亏</strong></td><td><em>待更新</em></td><td><em>待更新</em></td><td><span class="signal-yellow">●</span> 液冷散热0→1拐点</td></tr></table></div>
+
+<h4 id="液冷空间测算">液冷空间测算</h4>
+<p style="padding-left:16px">- 2026年全球液冷市场突破<strong>150亿美元</strong>，中国占比60%+</p>
+<p style="padding-left:16px">- GB300 NVL72 单套液冷组件价值近<strong>40万元RMB</strong></p>
+<p style="padding-left:16px">- 假设26年中国AI数据中心液冷渗透率30% → 50万台×25万 = <strong>1250亿市场规模</strong></p>
+<p style="padding-left:16px">- 英维克若维持30%市占率 → <strong>375亿+营收弹性</strong></p>
+<hr>
+<h3 id="3-6-全板块盈利预测总览-按26E净利润排序">3.6 全板块盈利预测总览（按26E净利润排序）</h3>
+<div class="section-card"><table><tr><th>排名</th><th>公司</th><th>板块</th><th>市值(亿)</th><th>25A/E净利(亿)</th><th><strong>26E净利(亿)</strong></th><th><strong>27E净利(亿)</strong></th><th>25→26 CAGR</th></tr>
+<tr><td>1</td><td><strong>工业富联</strong></td><td>服务器/ODM</td><td>11233.7</td><td><strong>352.9</strong></td><td><strong>~430</strong></td><td><strong>~500+</strong></td><td>~22%</td></tr>
+<tr><td>2</td><td><strong>中际旭创</strong></td><td>光互连</td><td>7646.0</td><td><strong>115.8</strong></td><td><strong>225</strong></td><td><strong>334</strong></td><td><strong>~94%</strong></td></tr>
+<tr><td>3</td><td><strong>沪电股份</strong></td><td>PCB</td><td>1617.8</td><td><strong>38.2</strong></td><td><strong>~55</strong></td><td><strong>~75</strong></td><td>~44%</td></tr>
+<tr><td>4</td><td><strong>新易盛</strong></td><td>光互连</td><td><strong>4985.0</strong></td><td><strong>~96</strong></td><td><strong>172</strong></td><td><strong>228</strong></td><td><strong>~80%</strong></td></tr>
+<tr><td>5</td><td><strong>深南电路</strong></td><td>PCB/封装基板</td><td>1617.8</td><td><strong>32.8</strong></td><td><strong>50.9</strong></td><td><strong>69.9</strong></td><td><strong>~55%</strong></td></tr>
+<tr><td>6</td><td><strong>东山精密</strong></td><td>光互连/FPC</td><td>2196.3</td><td><strong>20.0</strong></td><td><strong>54.2</strong></td><td><strong>79.4</strong></td><td><strong>~170%</strong></td></tr>
+<tr><td>7</td><td><strong>生益科技</strong></td><td>材料/CCL</td><td>1432.7</td><td><strong>~34</strong></td><td><strong>54</strong></td><td><strong>74</strong></td><td><strong>~57%</strong></td></tr>
+<tr><td>8</td><td><strong>亨通光电</strong></td><td>光纤光缆</td><td>1444.3</td><td><strong>30.9</strong></td><td><strong>40</strong></td><td><strong>48</strong></td><td><strong>~30%</strong></td></tr>
+<tr><td>9</td><td><strong>生益电子</strong></td><td>PCB</td><td>753.5</td><td><strong>14.7</strong></td><td><strong>~21</strong></td><td><strong>~30</strong></td><td>~43%</td></tr>
+<tr><td>10</td><td><strong>天孚通信</strong></td><td>光互连</td><td>2619.9</td><td><strong>20.2</strong></td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td></tr>
+<tr><td>11</td><td><strong>世运电路</strong></td><td>PCB</td><td>389.7</td><td><strong>8.9</strong></td><td><strong>12.1</strong></td><td><strong>16.3</strong></td><td>~37%</td></tr>
+<tr><td>12</td><td><strong>长飞光纤</strong></td><td>光纤光缆</td><td>2997.8</td><td><strong>8.1</strong></td><td><strong>~12</strong></td><td><strong>~15+</strong></td><td><strong>~45%</strong></td></tr>
+<tr><td>13</td><td><strong>永鼎股份</strong></td><td>光通信</td><td>485.8</td><td><strong>~2.5</strong></td><td><strong>~4-5</strong></td><td><strong>~6</strong></td><td>~60%+</td></tr>
+<tr><td>14</td><td><strong>东材科技</strong></td><td>材料/电子树脂</td><td>336.8</td><td><strong>3.0</strong></td><td><strong>~4-5</strong></td><td><strong>~6</strong></td><td><strong>~40%</strong></td></tr>
+<tr><td>15</td><td><strong>麦格米特</strong></td><td>电源</td><td>596.0</td><td><strong>~1.8</strong></td><td><strong>9.4</strong></td><td><strong>15.2</strong></td><td><strong>~409%</strong></td></tr>
+<tr><td>16</td><td><strong>英维克</strong></td><td>液冷</td><td>893.5</td><td><strong>4.5</strong>(24A)</td><td><em>待更新</em></td><td><em>待更新</em></td><td>—</td></tr>
+<tr><td>17</td><td><strong>罗博特科</strong></td><td>自动化设备</td><td>796.6</td><td><strong>-0.66</strong></td><td><strong><em>扭亏</strong></em></td><td><strong><em>盈利</strong></em></td><td>拐点</td></tr></table></div>
+
+<blockquote>市值数据来源：Tushare daily_basic（2026-04-08收盘），新易盛市值手动修正，单位：亿元。新易盛、罗博特科PE为负（亏损/扭亏期）。</blockquote>
+<hr>
+<h2 id="四-分板块空间测算">四、分板块空间测算</h2>
+<h3 id="4-1-光互连-光模块-OCS-CPO">4.1 光互连（光模块/OCS/CPO）</h3>
+<p><strong>格局判断：</strong> 800G已进入规模化出货巅峰，1.6T正处于从样品测试向量产过渡的关键期。</p>
+<p><strong>关键数据：</strong></p>
+<p style="padding-left:16px">- 2026年全球800G需求预计3500-3800万只（同比+80%+）</p>
+<p style="padding-left:16px">- 1.6T需求预计3000万只（2026年爆发起点）</p>
+<p style="padding-left:16px">- 中际旭创2025A：营收382亿(+60%)，净利116亿(+109%)，<strong>毛利率42.61%（+8ppt）</strong> — 规模效应极强</p>
+<p style="padding-left:16px">- 新易盛2025E：净利94-99亿（<strong>+240%</strong> 弹性远超旭创）— LPO技术降本红利</p>
+<p style="padding-left:16px">- 高盛预测：2026年全球800G以上高端光模块销量同比增长101%，旭创2025-2028净利润CAGR=53%</p>
+<p><strong>空间测算（中际旭创）：</strong></p>
+<p style="padding-left:16px">- 2026年全球光模块市场规模1000亿+人民币</p>
+<p style="padding-left:16px">- 旭创份额30-35%（800G龙头）→ 营收500亿+</p>
+<p style="padding-left:16px">- 若净利率维持在30% → 利润150亿+弹性</p>
+<p style="padding-left:16px">- <strong>3.2T产品预计2026H2进入客户测试，2028年起量</strong> — 第二增长曲线</p>
+<p><strong>OCS/CPO进展：</strong></p>
+<p style="padding-left:16px">- OCS（光路交换）：谷歌TPU v7/v8标配，功耗比电交换降40%</p>
+<p style="padding-left:16px">- CPO（共封装）：天孚通信FAU+无源器件已切入，从0到1商业化阶段</p>
+<p style="padding-left:16px">- <strong>认知差</strong>：硅光模块隔离器用量不减反增（尺寸增大抵消数量减少）</p>
+<h3 id="4-2-光纤光缆">4.2 光纤光缆</h3>
+<p><strong>核心矛盾：G.652D结构性短缺</strong></p>
+<p style="padding-left:16px">- 散纤价格从2025年初的~40元/芯km飙升至当前~200元/芯km（<strong>+400%</strong>）</p>
+<p style="padding-left:16px">- 2026年1月普缆价格创7年新高至35元/芯km，单月涨幅75%</p>
+<p style="padding-left:16px">- 根本原因：海外G657A2多模光纤需求暴增（AI数据中心柜内光纤密度提升32倍），抢走了G652D的产能</p>
+<p style="padding-left:16px">- 扩产周期2-3年，短期缺口无法缓解</p>
+<p style="padding-left:16px">- 运营商集采限价与市场价严重倒挂 → 多地招标流标</p>
+<p><strong>受益排序：远东股份(散纤弹性最大) > 长飞光纤 > 亨通光电</strong></p>
+<p><strong>长飞光纤 2025A关键数据（3.27公告）：</strong></p>
+<p style="padding-left:16px">- 营收 <strong>142.52亿</strong>（+16.85%），归母净利 <strong>8.14亿</strong>（+20.4%）</p>
+<p style="padding-left:16px">- 毛利率从27.3%提升至30.7% — 产品结构优化驱动</p>
+<p style="padding-left:16px">- <strong>光互联组件</strong>收入31.44亿（+48.58%，毛利率39.73%）— AI算力新引擎</p>
+<p style="padding-left:16px">- 境外收入60.92亿（+47.81%）— 国际化战略见效</p>
+<p><strong>亨通光电 2025E（13家机构共识）：</strong></p>
+<p style="padding-left:16px">- 净利30.85亿（+11%），26E看至40亿(+30%)，27E 48亿</p>
+<p style="padding-left:16px">- 光通信供需改善 + 海洋能源订单加速交付</p>
+<p style="padding-left:16px">- AI算力时代特种光纤（空芯/多芯）需求释放</p>
+<h3 id="4-3-高端PCB---AI服务器的-基地">4.3 高端PCB — AI服务器的“基地”</h3>
+<blockquote>AI服务对PCB的技术要求远超传统服务器：5c数16-20层→28层+，材料从普通FR-4→高频高速(M7/M8)，单台价值\-400提升至\-3000</blockquote>
+<p><strong>四大PCB标的对比：</strong></p>
+<div class="section-card"><table><tr><th>维度</th><th>深南电路(002916)</th><th>沪电股份(002463)</th><th>生益电子(688183)</th><th>世运电路(603920)</th></tr>
+<tr><td>定位</td><td>PCB+封装基板双龙头</td><td>高端通信PCB绝对龙头</td><td>AI服务器HDI弹性之王</td><td>汽车向AI PCB跃迁</td></tr>
+<tr><td>25A净利</td><td><strong>32.76亿(+74%)</strong></td><td><strong>38.22亿(+48%)</strong></td><td><strong>14.73亿(+344%)</strong></td><td><strong>8.85亿(+31%)</strong></td></tr>
+<tr><td>26E净利</td><td><strong>50.9亿(19家)</strong></td><td>~55亿(推算)</td><td>~21-23亿</td><td><strong>12.1亿(8家)</strong></td></tr>
+<tr><td>核心壁垒</td><td>FC-BGA封装基板(国内唯一)</td><td>800G交换机板+AI主板</td><td>高阶HDI+AI认证</td><td>英俞达/AMD供应链导入</td></tr></table></div>
+
+<h4 id="PCB-半导体材料---本期最大alpha方向">PCB/半导体材料 — 本期最大alpha方向</h4>
+<p><strong>这是本期报告最需要重视的部分。PCB上游材料正在经历全面通胀周期。</strong></p>
+<h4 id="PPO树脂-聚苯醚">PPO树脂（聚苯醚）</h4>
+<p style="padding-left:16px">- <strong>事件</strong>：日本MGC（三菱瓦斯化学）4/1起电子材料全面涨价30%</p>
+<p style="padding-left:16px">- <strong>供需</strong>：2026年电子级PPO全球总供给年底前仅~6000吨；但M8/M9级高速CCL需求爆发，用量持续攀升</p>
+<p style="padding-left:16px">- <strong>竞争格局</strong>：全球仅3家——日本住友化学、日本MGC、<strong>中国圣泉集团(605589)</strong>。圣泉是国内唯一具备M4-M9全系列产品能力的厂商</p>
+<p style="padding-left:16px">- <strong>弹性</strong>：PPO从~40万/吨涨至~55-60万/吨，圣泉单吨利润从15万→25万+。且酚醛树脂也在同步涨价（累计+1000元/吨）</p>
+<p style="padding-left:16px">- <strong>判断</strong>：🟢🟢🟢 <strong>圣泉集团是本轮PCB材料通胀的核心受益标的</strong></p>
+<h4 id="CCL覆铜板">CCL覆铜板</h4>
+<p style="padding-left:16px">- <strong>事件</strong>：建滔积层板（全球CCL龙头）本周发函涨价10%</p>
+<p style="padding-left:16px">- <strong>原因</strong>：上游PPO树脂暴涨+电子玻纤布供应紧张</p>
+<p style="padding-left:16px">- <strong>传导链</strong>：树脂/布涨价 → CCL涨价 → PCB涨价 → 下游（服务器/光模块/消费电子）成本上升</p>
+<p style="padding-left:16px">- <strong>受益</strong>：</p>
+<p style="padding-left:16px">- <strong>生益科技(600183)</strong>：CCL全球第二，26E净利54亿(+54%)/27E 74亿。AI驱动高频高速CCL需求，覆铜板量价齐升</p>
+<p style="padding-left:16px">- <strong>华正新材</strong>：CCL涨价传导链受益标的</p>
+<p style="padding-left:16px">- 深南电路/沪电股份：高端PCB议价转嫁能力强</p>
+<h4 id="电子级环氧树脂---电子材料">电子级环氧树脂 / 电子材料</h4>
+<p style="padding-left:16px">- <strong>宏昌电子(603002)</strong>：国内电子级环氧树脂龙头，环氧树脂+覆铜板双主业。产品已切入瀚宇博德、健鼎等PCB龙头供应链，用于服务器及AI算力设备。⚠️ Tushare forecast数据较旧(仅到23A)，需跟踪25年报更新。</p>
+<p style="padding-left:16px">- <strong>东材科技(601208)</strong>：2025E预告净利3.0亿(+66%)，扣非2.5亿(+101%)。电子树脂向多家全球知名覆铜板制造商供货，25Q3电子材料销量yoy+50%(至2.1万吨)。光学聚酯基膜+聚丙烯薄膜持续上量。新产能释放推动业绩高增。</p>
+<h4 id="WF6六氟化钨">WF6六氟化钨</h4>
+<p style="padding-left:16px">- <strong>事件</strong>：4月3日确认——日本关东电化/中央硝子正式向三星发出WF6断供通知</p>
+<p style="padding-left:16px">- <strong>逻辑链</strong>：中国钨出口管制 → 日厂粗钨原料80%+依赖中国 → 成本不可持续 → 断供韩国半导体企业</p>
+<p style="padding-left:16px">- <strong>替代机会</strong>：</p>
+<p style="padding-left:16px">- 中船特气：WF6产能2000吨/年，全球覆盖率70.31%</p>
+<p style="padding-left:16px">- 昊华科技：WF6产能600吨/年；六氟丁二烯1200吨/年（全球第一）</p>
+<p style="padding-left:16px">- 和远气体：500吨/年建成产能</p>
+<p style="padding-left:16px">- 南大光电、三孚股份、至纯科技均有布局</p>
+<p style="padding-left:16px">- <strong>判断</strong>：🟢🟢 <strong>国产电子特气的战略机遇期，中船特气为核心标的（未上市，关注科创板预期）</strong></p>
+<h4 id="磷化铟-InP">磷化铟（InP）</h4>
+<p style="padding-left:16px">- 光模块InP激光器芯片核心材料</p>
+<p style="padding-left:16px">- 云南锗业(002428)：扩产至45万片/年</p>
+<p style="padding-left:16px">- 行业景气回暖 + 国产替代加速</p>
+<h3 id="4-4-数据中心配套-液冷-电源-AIDC">4.4 数据中心配套（液冷/电源/AIDC）</h3>
+<p><strong>液冷——从边缘配套跃升为核心赛道</strong></p>
+<p style="padding-left:16px">- 2026年全球液冷市场规模预计突破<strong>150亿美元</strong>，中国占比超60%</p>
+<p style="padding-left:16px">- <strong>英伟达GB300</strong>：单芯片热耗1400W → 风冷物理极限被突破 → 液冷从"可选项"变为"必选项"</p>
+<p style="padding-left:16px">- GB300 NVL72机架级AI服务器单套液冷组件价值<strong>近40万元人民币</strong></p>
+<p style="padding-left:16px">- CoreWeave已部署全球首批NVL72 GB300，正式商用</p>
+<p style="padding-left:16px">- <strong>润泽科技(300442)</strong>：AIDC/IDC龙头，2025E预告净利50-53亿(+180%~+196%)</p>
+<p><strong>空间测算（液冷）：</strong></p>
+<p style="padding-left:16px">- 假设2026年中国AI数据中心液冷渗透率30%（vs 当前<10%）</p>
+<p style="padding-left:16px">- 中国AI服务器装机量假设50万台 × 单套液冷价值25万 → 市场规模1250亿</p>
+<p style="padding-left:16px">- 英维克作为温控龙头，市占率若维持30% → 营收375亿+弹性</p>
+<hr>
+<h2 id="五-跨板块联动与风险提示">五、跨板块联动与风险提示</h2>
+<h3 id="板块联动逻辑链">板块联动逻辑链</h3>
+<pre><code class="language-">
+日本MGC PPO涨价30%(4.1)
+
+    │
+
+    ├─→ CCL建滔涨价10% → 生益科技(CCL龙头)/华正新材受益
+
+    │       │
+
+    │       ├─→ 东材科技(电子树脂供货商)量价齐升
+
+    │       ├─→ 宏昌电子(环氧树脂)潜在受益
+
+    │       └─→ PCB成本上升 → 高端PCB(深南/沪电)议价转嫁能力强
+
+    │
+
+日本WF6断供三星(4.3确认)
+
+    │
+
+    ├─→ 中船特气/昊华科技替代机会（国产电子特气）
+
+    │
+
+英伟达GB300液冷放量 + 工业富联AI服务器3x增长
+
+    │
+
+    ├─→ 英维克(温控) + 欧陆通(电源) + 高澜股份(散热) + **麦格米特(AI电源 1.8→9.4亿 26E)**
+
+    │   └─→ 工业富联: AI服务器收入占比12%→42%，GB300/Rubin核心伙伴
+
+    │
+
+光纤G652D结构性短缺
+
+    │
+
+    ├─→ 远东股份(散纤弹性最大) + 长飞光纤(光互联组件+49%) + 亨通光电(30%+ 26E增速)
+
+    │
+
+光模块三巨头业绩爆发
+
+    │
+
+    └─→ 中际旭创(115.8亿→225亿 26E) / 新易盛(96亿→172亿 26E) / 天孚通信(20.2亿)
+
+</code></pre>
+<h3 id="核心风险-TOP-4">核心风险（TOP 4）</h3>
+<p style="padding-left:16px">1. <strong>⚠️ 光模块价格下行风险</strong>：800G光模块2026年预计降价（中际旭创已指引），若降幅超预期可能压缩毛利率。但<strong>1.6T单价更高、毛利更厚</strong>，产品结构升级可对冲。</p>
+<p style="padding-left:16px">2. <strong>⚠️ 材料涨价持续性存疑</strong>：PPO/WF6/CCL当前涨价主要受供给冲击驱动。若日本产能恢复或中国扩产超预期，价格可能回落。需持续跟踪月度价格数据。</p>
+<p style="padding-left:16px">3. <strong>⚠️ 技术路线风险</strong>：</p>
+<p style="padding-left:16px">- <strong>硅光 vs EML</strong>：若硅光方案加速成熟，可能改变光器件供应链格局</p>
+<p style="padding-left:16px">- <strong>CPO vs 可插拔</strong>：CPO商业化进度若慢于预期，天孚通信等FAU标的短期估值受压</p>
+<p style="padding-left:16px">- <strong>OCS vs 电交换</strong>：OCS目前仅谷歌大规模采用，其他云厂商跟进节奏不确定</p>
+<p style="padding-left:16px">4. <strong>⚠️ 地缘政治风险</strong>：MATCH法案（4.2提出）对中国半导体全产业链的影响。虽然AI Infra主要聚焦材料/光通信/数据中心，但若制裁范围扩大到光芯片或设备，部分标的可能受影响。反向看——<strong>制裁越狠，国产替代空间越大。</strong></p>
+<hr>
+<h2 id="六-后续关注日历-未来2周---Q2">六、后续关注日历（未来2周 ~ Q2）</h2>
+<div class="section-card"><table><tr><th>时间窗口</th><th>催化事件</th><th>关联标的</th><th>弹性</th></tr>
+<tr><td><strong>4月中旬</strong></td><td>各公司Q1业绩预告密集披露（光模块/液冷/材料/PCB/电源全板块）</td><td>中际旭创/新易盛/英维克/生益科技/东材科技</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>4月22-24日</strong></td><td><strong>谷歌Cloud Next '26</strong> — TPU v7/v8/OCS最新进展</td><td>中际旭创/腾景科技</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>4月下旬</strong></td><td>圣泉集团PPO涨价；生益科技CCL涨价；深南/沪电/生益电子Q1验证AI PCB需求</td><td>圣泉集团/生益科技</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>4月底</strong></td><td>工业富联一季报：AI服务器收入占比是否继续提升</td><td>工业富联</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>4月底-5月</strong></td><td>WF6断供后续影响跟踪——韩企库存耗尽时间点</td><td>昊华科技/和远气体</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>5月</strong></td><td>建滔CCL涨价后行业跟随情况观察</td><td>生益科技/华正新材</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>5月中下旬</strong></td><td>G652D散纤月度价格跟踪（连续第4个月上涨？）；长飞/亨通Q1财报</td><td>远东股份/长飞光纤/亨通光电</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>5月19-20日</strong></td><td><strong>Google I/O 2026</strong> — AI基础设施重大发布</td><td>全线光互连标的</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>Q2末</strong></td><td>GB300 NVL72批量交付确认</td><td>英维克/欧陆通/工业富联</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>Q2末</strong></td><td>航天电器224G连接器规模化供货</td><td>航天电器</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>H2起</strong></td><td>1.6T光模块规模化放量起点</td><td>新易盛/中际旭创</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr>
+<tr><td><strong>2026H2</strong></td><td>3.2T光模块进入客户测试</td><td>中际旭创</td><td><span class="star">★</span><span class="star">★</span><span class="star">★</span></td></tr></table></div>
+
+<hr>
+<p><em>数据来源：Tushare Pro（income/forecast接口）、web_search聚合、新浪财经/雪球/钛媒体/经济观察网/搜狐/21世纪经济报道等。</em></p>
+<p><em>报告生成时间：2026-04-08 17:xx（v2更新：加入远期预测+6家新公司） | Skill版本：ai-infra-catalyst v3</em></p>
+<div class="footer">数据来源：Tushare Pro（income/forecast接口）、web_search聚合、新浪财经/雪球/钛媒体等<br>报告生成时间：2026-04-08 v3 · ai-infra-catalyst Skill · 柚子 🍊 for Ryan</div>
+</body></html>
